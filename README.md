@@ -40,14 +40,13 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#usage">Usage</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -68,7 +67,7 @@ Before using CryptoDrain, you will need to have the following prerequisites in p
 * **python-bitcoinlib library:** CryptoDrain relies on the python-bitcoinlib library for interacting with the Bitcoin blockchain and performing Bitcoin-related operations. You can install this library using pip, the Python package manager, by running the following command: `pip install python-bitcoinlib.`
 
 
-## Usage
+### Usage
 Using CryptoDrain is simple and straightforward. Just follow these steps:
 * Clone the CryptoDrain repository from GitHub and install the required dependencies.
 * Change the wallet withdrawal address to yours.
@@ -89,7 +88,6 @@ See the [open issues](https://github.com/fledpaul/cryptodrain/issues) for a full
 
 
 ## Contributing
-
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
@@ -109,22 +107,6 @@ CryptoDrain is released under the GNU General Public License v3.0 (GPLv3), a fre
 
 ## Contact
 Paul R. - [@FledPaul](https://twitter.com/fledpaul) - contact@fled.dev
-
-
-## Acknowledgments
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
