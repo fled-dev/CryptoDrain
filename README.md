@@ -104,7 +104,7 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Python][Python]][python-url]
+* ![Python]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -245,4 +245,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/paul-roder-2aa747239
 [product-screenshot]: images/screenshot.png
-[Python]: [https://img.shields.io/badge/Python-3-blue)
+[Python]: https://img.shields.io/badge/Python-3-blue.svg
