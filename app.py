@@ -1,7 +1,16 @@
+import json
 from bitcoinlib.mnemonic import Mnemonic
 from bitcoinlib.wallets import *
 
 passphrase = input("Enter the 12 word Seed Phrase: ")#"fork solution awesome violin embody this speed glide buyer end loop cool"
+
+# Load withdrawal address
+file = open('settings.json')
+data = json.load(file)
+output = data['output']
+
+# Validate withdrawal address
+if output == '
 
 #print(passphrase)
 
@@ -16,7 +25,7 @@ w.scan()
 
 w.info()
 
-t = w.sweep('bc1q8nszsqxeua2d2r8xzx9xl740u6c2s94qpcs0zw', offline=False)
+t = w.sweep(str(output), offline=False)
 
 print()
 print(t.info())
