@@ -1,6 +1,7 @@
 import json
 from bitcoinlib.mnemonic import Mnemonic
 from bitcoinlib.wallets import *
+import sys
 
 passphrase = input("Enter the 12 word Seed Phrase: ")#"fork solution awesome violin embody this speed glide buyer end loop cool"
 
@@ -15,10 +16,10 @@ output = rawOutput.replace(' ', '')
 # Validate withdrawal address
 if output == 'enter your wallet address':
   print('You need to define the output address first. Please check the docs on https://github.com/fledpaul/cryptodrain/README.md')
-  quit()
+  sys.exit()
 elif output == '':
   print('The output address is empty. Please check the docs on https://github.com/fledpaul/cryptodrain/README.md')
-  quit()
+  sys.exit()
 
 #print(passphrase)
 
