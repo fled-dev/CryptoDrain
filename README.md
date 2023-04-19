@@ -78,6 +78,15 @@ Using CryptoDrain is simple and straightforward. Just follow these steps:
 
 
 ## Roadmap
+- [ ] Multi-Coin Support
+    - [ ] Ethereum (ETH)
+    - [ ] Tether (USDT)
+    - [ ] BNB (BNB)
+    - [ ] USD Coin (USDC)
+    - [ ] Ripple (XRP)
+    - [ ] Cardano (ADA)
+    - [ ] Polygon (MATIC)
+    - [ ] Solana (SOL)
 - [ ] Multi-Language Support
     - [ ] Chinese
     - [ ] Spanish
