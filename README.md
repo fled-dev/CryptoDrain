@@ -16,7 +16,7 @@
   <h3 align="center">CryptoDrain - Wallet Sweeper</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+  Sweep Your Crypto Wallets with Ease - Python-powered, Secure, and Efficient
     <br />
     <br />
     <a href="https://github.com/FledPaul/CryptoDrain/issues/new">Report Bug</a>
