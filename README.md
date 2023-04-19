@@ -1,30 +1,9 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -40,12 +19,11 @@
     An awesome README template to jumpstart your projects!
     <br />
     <br />
- <a href="https://github.com/FledPaul/CryptoDrain/issues/new">Report Bug</a>
+    <a href="https://github.com/FledPaul/CryptoDrain/issues/new">Report Bug</a>
     ·
     <a href="https://github.com/FledPaul/CryptoDrain/issues/new">Request Feature</a>
   </p>
 </div>
-
 
 
 <!-- TABLE OF CONTENTS -->
@@ -62,7 +40,6 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -75,35 +52,23 @@
 </details>
 
 
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
-
 CryptoDrain is a Python program developed to streamline the process of sweeping crypto wallets using just the seed phrase, without the need for a derivation path. With CryptoDrain, you can securely and quickly withdraw crypto wallets in a matter of seconds, saving you time and effort.
 
 
 ### Built With
-
 CryptoDrain is built using Python 3.11, a powerful and versatile programming language, along with the python-bitcoinlib library, which provides extensive support for working with Bitcoin-related cryptographic functions. Python 3.11 provides a wide range of features and libraries that make it an ideal choice for developing CryptoDrain, while python-bitcoinlib enhances the program's capabilities by providing robust support for Bitcoin-specific operations.
 
 
-<!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
-
 Before using CryptoDrain, you will need to have the following prerequisites in place:
-
 * **Python 3:** CryptoDrain is built with Python 3.11, so you will need to have any Python 3 version installed on your system. You can download and install Python 3.11 from the official [Python website](https://www.python.org/).
 * **python-bitcoinlib library:** CryptoDrain relies on the python-bitcoinlib library for interacting with the Bitcoin blockchain and performing Bitcoin-related operations. You can install this library using pip, the Python package manager, by running the following command: `pip install python-bitcoinlib.`
 
 
-<!-- USAGE EXAMPLES -->
 ## Usage
-
 Using CryptoDrain is simple and straightforward. Just follow these steps:
 * Clone the CryptoDrain repository from GitHub and install the required dependencies.
 * Change the wallet withdrawal address to yours.
@@ -113,33 +78,22 @@ Using CryptoDrain is simple and straightforward. Just follow these steps:
 * Once the process is complete, you will have successfully swept the crypto wallet using just the seed phrase, without the need for a derivation path.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
 ## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
+- [ ] Multi-Language Support
     - [ ] Chinese
     - [ ] Spanish
+    - [ ] German
+- [ ] Colored Ouput
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+See the [open issues](https://github.com/fledpaul/cryptodrain/issues) for a full list of proposed features (and known issues).
 
 
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -148,33 +102,16 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- LICENSE -->
 ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+CryptoDrain is released under the GNU General Public License v3.0 (GPLv3), a free and open-source software license that provides users with the freedom to use, modify, and distribute CryptoDrain. The GPLv3 ensures that CryptoDrain remains free and open-source, and any modifications or improvements made to the software are also shared with the community.
 
 
-
-<!-- CONTACT -->
 ## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Paul R. - [@FledPaul](https://twitter.com/fledpaul) - contact@fled.dev
 
 
-
-<!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
