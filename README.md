@@ -30,11 +30,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/fledpaul/cryptodrain">
+    <img src="https://i.ibb.co/4R6mHTZ/cryptodrain.png" alt="Logo" width="250" height="250">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">CryptoDrain - Wallet Sweeper</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
