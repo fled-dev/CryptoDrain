@@ -79,17 +79,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-SeedSweeper is a Python program developed to streamline the process of sweeping crypto wallets using just the seed phrase, without the need for a derivation path. With SeedSweeper, you can securely and quickly withdraw crypto wallets in a matter of seconds, saving you time and effort.
+CryptoDrain is a Python program developed to streamline the process of sweeping crypto wallets using just the seed phrase, without the need for a derivation path. With CryptoDrain, you can securely and quickly withdraw crypto wallets in a matter of seconds, saving you time and effort.
 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+SeedSweeper is built using Python 3.11, a powerful and versatile programming language, along with the python-bitcoinlib library, which provides extensive support for working with Bitcoin-related cryptographic functions. Python 3.11 provides a wide range of features and libraries that make it an ideal choice for developing SeedSweeper, while python-bitcoinlib enhances the program's capabilities by providing robust support for Bitcoin-specific operations.
 
 * ![Python]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
