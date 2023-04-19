@@ -65,13 +65,13 @@ CryptoDrain is built using Python 3.11, a powerful and versatile programming lan
 Before using CryptoDrain, you will need to have the following prerequisites in place:
 * **Python 3:** CryptoDrain is built with Python 3.11, so you will need to have any Python 3 version installed on your system. You can download and install Python 3.11 from the official [Python website](https://www.python.org/).
 * **python-bitcoinlib library:** CryptoDrain relies on the python-bitcoinlib library for interacting with the Bitcoin blockchain and performing Bitcoin-related operations. You can install this library using pip, the Python package manager, by running the following command: `pip install python-bitcoinlib.`
-* **json library:** To load your output wallet address, CryptoDrain uses the json library.
+* **json library:** CryptoDrain uses the json module, which is a standard Python library, to load the output addresses. The json module is usually included in the standard Python distribution, so no additional installation is required.
 
 
 ### Usage
 Using CryptoDrain is simple and straightforward. Just follow these steps:
 * Clone the CryptoDrain repository from GitHub and install the required dependencies.
-* Change the wallet withdrawal address to yours.
+* Define the output address in the `settings.json` file.
 * Launch the CryptoDrain program in your preferred Python environment.
 * Enter the seed phrase for the crypto wallet you want to sweep.
 * Follow the prompts and instructions provided by the program to complete the wallet sweeping process.
