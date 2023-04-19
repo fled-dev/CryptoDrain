@@ -84,7 +84,7 @@ CryptoDrain is a Python program developed to streamline the process of sweeping 
 
 ### Built With
 
-SeedSweeper is built using Python 3.11, a powerful and versatile programming language, along with the python-bitcoinlib library, which provides extensive support for working with Bitcoin-related cryptographic functions. Python 3.11 provides a wide range of features and libraries that make it an ideal choice for developing SeedSweeper, while python-bitcoinlib enhances the program's capabilities by providing robust support for Bitcoin-specific operations.
+CryptoDrain is built using Python 3.11, a powerful and versatile programming language, along with the python-bitcoinlib library, which provides extensive support for working with Bitcoin-related cryptographic functions. Python 3.11 provides a wide range of features and libraries that make it an ideal choice for developing CryptoDrain, while python-bitcoinlib enhances the program's capabilities by providing robust support for Bitcoin-specific operations.
 
 
 <!-- GETTING STARTED -->
@@ -95,40 +95,23 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Before using CryptoDrain, you will need to have the following prerequisites in place:
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+* **Python 3:** CryptoDrain is built with Python 3.11, so you will need to have any Python 3 version installed on your system. You can download and install Python 3.11 from the official [Python website](https://www.python.org/).
+* **python-bitcoinlib library:** CryptoDrain relies on the python-bitcoinlib library for interacting with the Bitcoin blockchain and performing Bitcoin-related operations. You can install this library using pip, the Python package manager, by running the following command: `pip install python-bitcoinlib.`
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Using CryptoDrain is simple and straightforward. Just follow these steps:
+* Clone the CryptoDrain repository from GitHub and install the required dependencies.
+* Change the wallet withdrawal address to yours.
+* Launch the CryptoDrain program in your preferred Python environment.
+* Enter the seed phrase for the crypto wallet you want to sweep.
+* Follow the prompts and instructions provided by the program to complete the wallet sweeping process.
+* Once the process is complete, you will have successfully swept the crypto wallet using just the seed phrase, without the need for a derivation path.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
