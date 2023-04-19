@@ -65,6 +65,7 @@ CryptoDrain is built using Python 3.11, a powerful and versatile programming lan
 Before using CryptoDrain, you will need to have the following prerequisites in place:
 * **Python 3:** CryptoDrain is built with Python 3.11, so you will need to have any Python 3 version installed on your system. You can download and install Python 3.11 from the official [Python website](https://www.python.org/).
 * **python-bitcoinlib library:** CryptoDrain relies on the python-bitcoinlib library for interacting with the Bitcoin blockchain and performing Bitcoin-related operations. You can install this library using pip, the Python package manager, by running the following command: `pip install python-bitcoinlib.`
+* **json library:** To load your output wallet address, CryptoDrain uses the json library.
 
 
 ### Usage
