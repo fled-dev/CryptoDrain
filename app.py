@@ -7,10 +7,18 @@ passphrase = input("Enter the 12 word Seed Phrase: ")#"fork solution awesome vio
 # Load withdrawal address
 file = open('settings.json')
 data = json.load(file)
-output = data['output']
+rawOutput = data['output']
+
+# Remove the spaces
+output = rawOutput.replace(' ', '')
 
 # Validate withdrawal address
-if output == '
+if output == 'enter your wallet address':
+  print('You need to define the output address first. Please check the docs on https://github.com/fledpaul/cryptodrain/README.md')
+  quit()
+elif output == '':
+  print('The output address is empty. Please check the docs on https://github.com/fledpaul/cryptodrain/README.md')
+  quit()
 
 #print(passphrase)
 
