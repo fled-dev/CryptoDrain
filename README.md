@@ -86,8 +86,6 @@ CryptoDrain is a Python program developed to streamline the process of sweeping 
 
 SeedSweeper is built using Python 3.11, a powerful and versatile programming language, along with the python-bitcoinlib library, which provides extensive support for working with Bitcoin-related cryptographic functions. Python 3.11 provides a wide range of features and libraries that make it an ideal choice for developing SeedSweeper, while python-bitcoinlib enhances the program's capabilities by providing robust support for Bitcoin-specific operations.
 
-* ![Python]
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
