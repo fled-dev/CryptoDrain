@@ -1,5 +1,4 @@
 import json
-from bitcoinlib.mnemonic import Mnemonic
 from bitcoinlib.wallets import *
 import sys
 
