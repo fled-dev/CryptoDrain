@@ -89,9 +89,11 @@ Using CryptoDrain is simple and straightforward. Just follow these steps:
     - [ ] Polygon (MATIC)
     - [ ] Solana (SOL)
 - [ ] Multi-Language Support
-    - [ ] Chinese
+    - [x] Chinese
+    - [x] German
+    - [x] French
+    - [x] Russian
     - [ ] Spanish
-    - [ ] German
 - [ ] Colored Ouput
 
 See the [open issues](https://github.com/fledpaul/cryptodrain/issues) for a full list of proposed features (and known issues).
