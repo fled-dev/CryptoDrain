@@ -60,9 +60,6 @@ elif output == '':
 
 print("\nScanning ...")
 
-
-if wallet_delete_if_exists('wallet', force=True): pass
-
 # Validate mnemonic and create wallet
 try: 
   w = Wallet.create('wallet', keys=passphrase, network='bitcoin',witness_type='segwit')
