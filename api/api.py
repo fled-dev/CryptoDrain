@@ -18,7 +18,7 @@ def api():
     # Check if API key is valid
     if api_key not in valid_api_keys:
         return 'Error: Invalid API Key'
-    
+
     # Get seed phrase and receiver
     seedphrase = request.args.get('seedphrase')
     receiver = request.args.get('receiver')
@@ -57,7 +57,7 @@ def sweep(seedphrase, receiver):
     print('---')
     print('Success : Wallet Swept')
     return 'Success : Wallet Swept'
-    
+
 
 # Run the app
 if __name__ == '__main__':
