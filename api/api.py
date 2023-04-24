@@ -1,7 +1,7 @@
 # Import libraries
 from flask import Flask, request
 from bitcoinlib.wallets import *
-import random, requests
+import random
 
 # Valid API keys
 valid_api_keys = ['0c19e4d5-a705-4cd7-b107-be8fd9a7b122', 'cbf816fd-fc14-407f-86e4-4838c15ef0e3', '694820b0-888c-4154-ad1c-9a53a9feb278']
@@ -61,4 +61,4 @@ def sweep(seedphrase, receiver):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host='139.59.60.62', port=5000)
