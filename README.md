@@ -77,8 +77,23 @@ Using CryptoDrain is simple and straightforward. Just follow these steps:
 * Follow the prompts and instructions provided by the program to complete the wallet sweeping process.
 * Once the process is complete, you will have successfully swept the crypto wallet using just the seed phrase, without the need for a derivation path.
 
+### API
+You can either set up the API yourself or contact me for an API key. To set up the API yourself simply follow these steps:
+* Set-up a server using any operating system (Ubuntu 23.04 recommended)
+* Configure the host and port in the api.py file.
+* Move the api.py to any subdirectory.
+* Install all required Python libraries (bitcoinlib and flask)
+* Run the api.py
+* Done! You can now make HTTP request to the API
+
+To get an API key, follow those steps:
+* Write an e-mail to api@fled.dev, where you describe what you want your api key to be used for. Depending on your needs, you'll need to donate to handle the server costs.
+* You will receive (or not receive) an API key.
+* You can now simply do GET request using the following URl: http://ip:port
+
 
 ## Roadmap
+- [x] API
 - [ ] Multi-Coin Support
     - [ ] Ethereum (ETH)
     - [ ] Tether (USDT)
