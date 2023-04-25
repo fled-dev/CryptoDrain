@@ -84,12 +84,12 @@ You can either set up the API yourself or contact me for an API key. To set up t
 * Move the api.py to any subdirectory.
 * Install all required Python libraries (bitcoinlib and flask)
 * Run the api.py
-* Done! You can now make HTTP request to the API
+* Done! You can now make HTTP request to the API.
 
 To get an API key, follow those steps:
 * Write an e-mail to api@fled.dev, where you describe what you want your api key to be used for. Depending on your needs, you'll need to donate to handle the server costs.
 * You will receive (or not receive) an API key.
-* You can now simply do GET request using the following URl: http://ip:port
+* You can now simply do GET request using the following URl: `http://ip:port?api-key=key&seedphrase=seedphrase&receiver=receiver_address`
 
 
 ## Roadmap
