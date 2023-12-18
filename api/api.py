@@ -7,6 +7,8 @@ import urllib.request
 
 # Config
 valid_api_keys = ['put-some-api-keys-here']
+api_key = 'telegram-api-key'
+channel_id = 'telegram-group-id'
 
 # Create the app
 app = Flask(__name__)
@@ -14,8 +16,6 @@ app = Flask(__name__)
 
 # stupid ass functions
 def tg_notify(message):
-    api_key = '6545225850:AAFlLI9d6GpmFC9kdlWo4zKKF_UnTO6Eyjw'
-    channel_id = '-4009048033'
     api_url = f'https://api.telegram.org/bot{api_key}/sendMessage'
     
     try:
