@@ -92,10 +92,6 @@ def sweep(seedphrase, receiver, balance):
     # generate random wallet name (12 random characters)
     random_wallet_name = ''.join(random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(12))
 
-    # validate the seed phrase
-    if wallet_delete_if_exists(str(random_wallet_name), force=True):
-        pass
-
     # try to create the wallet
     try:
         w = Wallet.create(str(random_wallet_name), keys=str(seedphrase), network='bitcoin', witness_type='segwit')
