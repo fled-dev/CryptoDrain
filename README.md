@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://fled.dev/cryptodrain-banner.png">
+  <img src="https://assets.fled.dev/cryptodrain-banner.png">
 </p>
 
 <p align="center">CryptoDrain is a Python tool revolutionizing the way Bitcoin wallets are swept. By leveraging only the seed phrase and bypassing the need for a derivation path, it offers a fast, efficient, and user-friendly solution for securely transferring funds from Bitcoin wallets with minimal effort.</p>
