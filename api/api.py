@@ -213,7 +213,7 @@ if __name__ == '__main__':
     print()
     # define the host and ip
     # host_ip = urllib.request.urlopen('https://v4.ident.me').read().decode('utf8')
-    host_ip = '0.0.0.0'
+    host_ip = '127.0.0.1'
     host_port = 8080
     time.sleep(0.5)
     print(f'\033[1mHost IP : {host_ip}')
