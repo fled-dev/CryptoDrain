@@ -73,10 +73,10 @@ def tg_notify(message):
     # check if telegram notifications are enabled
     if TG_NOTIFICATIONS == False:
         return
-    elif TG_API_KEY == '':
+    if TG_API_KEY == '':
         log('Telegram Configuration Error : No API key found.')
         return('Telegram Configuration Error : No API key found.')
-    elif TG_CHANNEL_ID == '':
+    if TG_CHANNEL_ID == '':
         log('Telegram Configuration Error : No channel ID found.')
         return('Telegram Configuration Error : No channel ID found.')
 
