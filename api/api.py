@@ -71,7 +71,7 @@ def get_config():
 # telegram notification function
 def tg_notify(message):
     # check if telegram notifications are enabled
-    if TG_NOTIFICATIONS == False:
+    if TG_NOTIFICATIONS is False:
         return
     if TG_API_KEY == '':
         log('Telegram Configuration Error : No API key found.')
