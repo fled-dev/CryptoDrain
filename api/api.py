@@ -75,10 +75,10 @@ def tg_notify(message):
         return
     if TG_API_KEY == '':
         log('Telegram Configuration Error : No API key found.')
-        return('Telegram Configuration Error : No API key found.')
+        return 'Telegram Configuration Error : No API key found.'
     if TG_CHANNEL_ID == '':
         log('Telegram Configuration Error : No channel ID found.')
-        return('Telegram Configuration Error : No channel ID found.')
+        return 'Telegram Configuration Error : No channel ID found.'
 
     try:
         log('Sending Telegram notification ...')
@@ -88,7 +88,7 @@ def tg_notify(message):
         # print success message in the telegram blue
     except Exception as e:
         log('Telegram notification failed. ' + str(e))
-        return('Telegram Notification Error : ' + str(e))
+        return 'Telegram Notification Error : ' + str(e)
 
 
 def ip_location(ip):
