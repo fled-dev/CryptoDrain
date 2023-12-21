@@ -79,7 +79,7 @@ def tg_notify(message):
     elif TG_CHANNEL_ID == '':
         log('Telegram Configuration Error : No channel ID found.')
         return('Telegram Configuration Error : No channel ID found.')
-    
+
     try:
         log('Sending Telegram notification ...')
         api_url = f'https://api.telegram.org/bot{str(TG_API_KEY)}/sendMessage'
