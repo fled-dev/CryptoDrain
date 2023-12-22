@@ -18,22 +18,6 @@
 
 <hr>
 
-### Prerequisites
-To ensure a smooth experience with CryptoDrain, make sure the following prerequisites are met:
-1. **Python 3.11**: CryptoDrain is developed using Python 3.11, offering the latest features and optimizations of the language. Ensure that your system has Python 3 installed, with a recommendation for Python 3.11. You can download it from the [official Python website](https://www.python.org/downloads/).
-2. **python-bitcoinlib Library**: This library is essential for CryptoDrain's interaction with the Bitcoin blockchain. It enables the program to execute Bitcoin-related cryptographic functions effectively. Install it via pip, the Python package manager, using the command:
-   ```
-   pip install python-bitcoinlib
-   ```
-3. **Flask Framework**: As CryptoDrain operates as a Flask web application, having Flask installed is crucial. It can be installed through pip with the following command:
-   ```
-   pip install Flask
-   ```
-4. **Random Module**: The random module, a standard part of Python's library, is used for generating unique identifiers within the application. It comes pre-installed with Python, so no additional steps are needed for this module.
-5. **json Module**: For processing JSON data, CryptoDrain utilizes Python's built-in json module. It's included in the standard Python distribution, so you don't need to install it separately.
-
-<hr>
-
 ### Usage
 Using CryptoDrain for sweeping Bitcoin wallets is designed to be intuitive and user-friendly. Follow these steps to get started:
 1. **Clone the Repository**: Start by cloning the CryptoDrain repository from GitHub to your local machine. This will give you access to all the necessary files and code.
@@ -42,7 +26,7 @@ Using CryptoDrain for sweeping Bitcoin wallets is designed to be intuitive and u
    pip install -r requirements.txt
    ```
    This command will install all the necessary Python libraries, including python-bitcoinlib and Flask.
-3. **Configure the Application**: Before running the program, define the receiver Bitcoin address in the `settings.json` file. This is where the swept funds will be sent.
+3. **Configure the Application**: Before running the program, configure some stuff in the config.json
 4. **Launch CryptoDrain**: Open your Python environment and navigate to the CryptoDrain directory. Run the program by executing:
    ```
    python api.py
