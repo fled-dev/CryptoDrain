@@ -7,14 +7,12 @@
 <hr>
 
 ### How CryptoDrain Works
-1. **Technology Stack:** Built on Python 3.11, CryptoDrain leverages the versatility and power of the latest Python features. The program extensively utilizes the python-bitcoinlib library, which is specifically tailored for handling Bitcoin-related cryptographic operations.
-2. **API-Driven Approach:** The application is set up as a Flask web server, allowing users to interact with it via a simple API. This design makes it easy to integrate with other systems or to operate remotely.
-3. **Secure API Key Authentication:** For security, CryptoDrain uses a system of valid API keys. Requests to the API without a valid key are promptly denied, ensuring that only authorized users can access the sweeping functionality.
-4. **Efficient Wallet Management:** Upon receiving a request with a valid API key, the user provides a seed phrase and a receiver Bitcoin address. CryptoDrain uses this information to generate a temporary wallet using the given seed phrase.
-5. **Dynamic Wallet Creation and Sweeping:** The application dynamically creates a wallet with a unique, randomly generated name. It then validates the seed phrase, scans the wallet for funds, and performs the sweep to the specified receiver address.
-6. **Real-Time Feedback and Error Handling:** Throughout the process, CryptoDrain provides real-time feedback, including wallet scanning and transaction status. In case of errors during the sweeping process, it promptly returns an informative error message to the user.
-7. **Network and Witness Type Flexibility:** CryptoDrain is configured to work with the Bitcoin network and uses the SegWit witness type for transactions, ensuring compatibility with modern Bitcoin standards.
-8. **Accessible Remotely:** Hosted on a server, CryptoDrain can be accessed and operated remotely, giving users the flexibility to manage Bitcoin wallets from any location.
+- **Technology Stack:** Developed with Python 3.11, CryptoDrain utilizes the python-bitcoinlib library for Bitcoin-related operations.
+- **API Integration:** Implemented as a Flask web server, allowing seamless interaction through a straightforward API, facilitating integration with other systems.
+- **Secure Authentication:** Utilizes API keys for secure access, denying unauthorized requests without valid keys.
+- **Dynamic Sweeping:** Creates wallets dynamically, validates seed phrases, scans for funds, and executes sweeps to specified addresses.
+- **Real-Time Feedback:** Provides users with live updates on wallet scanning and transaction progress, promptly addressing errors with informative messages.
+- **Flexible Network Settings:** Configured for Bitcoin network compatibility, utilizing SegWit witness type for transactions.
 
 <hr>
 
@@ -42,42 +40,14 @@ With these steps, you can effectively use CryptoDrain to sweep Bitcoin wallets u
 
 <hr>
 
-### Setting Up the API
-#### Self-Setup
-To set up the CryptoDrain API on your own, follow these straightforward steps:
-1. **Server Setup**: Begin by setting up a server. While you can use any operating system, Ubuntu 23.04 is recommended for its latest features and support.
-2. **Configure API Settings**: Open the `api.py` file and configure the host and port settings according to your server setup.
-3. **Organize Files**: Place the `api.py` file in a suitable subdirectory within your server environment.
-4. **Install Dependencies**: Ensure all required Python libraries are installed. This includes `bitcoinlib` and `flask`, which are crucial for the API's functionality. You can install these libraries using pip:
-   ```
-   pip install bitcoinlib flask
-   ```
-5. **Run the API**: Launch the API by running the `api.py` script. This will activate the Flask server and make your API operational.
-6. **API Access**: Once the API is running, it’s ready to handle HTTP requests. You can make requests to your API using the appropriate URL structured as follows:
-   ```
-   http://[your-server-ip]:[port]?api-key=[your-api-key]&seedphrase=[your-seed-phrase]&receiver=[receiver-address]
-   ```
-
-#### Obtaining an API Key
-If you prefer to use a pre-configured API, you can request an API key:
-1. **Request via Email**: Send an email to mail@fled.dev explaining your intended use for the API key. Make sure to detail your project or use-case.
-2. **Server Costs Contribution**: Depending on your usage needs, you may be asked to contribute towards server costs. This helps in maintaining the service quality and availability.
-3. **Receiving the API Key**: If your request is approved, you will receive an API key via email. In some cases, requests might not be granted based on the assessment of the intended use.
-4. **Using the API Key**: With the API key, you can make GET requests to the provided API endpoint. Format your request URL as follows:
-   ```
-   http://[api-server-ip]:[port]?api-key=[your-api-key]&seedphrase=[your-seed-phrase]&receiver=[receiver-address]
-   ```
-
-<hr>
-
 ### CryptoDrain Development Roadmap
-#### Short-Term Goals (1-3 Months)
+#### Short-Term Goals (Q2 2024)
 2. **Multi-Currency Support**: Expand the functionality to support additional cryptocurrencies beyond Bitcoin, such as Ethereum, Litecoin, and others.
 3. **API Rate Limiting**: Introduce rate limiting to the API to prevent abuse and ensure stable and reliable service for all users.
 4. **Logging and Monitoring**: Develop a logging system to record API usage and errors, aiding in troubleshooting and improving user experience.
 5. **Dockerization**: Package CryptoDrain in a Docker container for easier deployment and scalability.
 
-#### Mid-Term Goals (4-6 Months)
+#### Mid-Term Goals (Q4 2025)
 1. **Automated Testing Suite**: Create a suite of automated tests to ensure code quality, functionality, and facilitate easier updates and maintenance.
 2. **Blockchain Analytics**: Incorporate analytics features to provide users with insights into transaction histories, wallet balances, and network fees.
 3. **Web Interface**: Develop a user-friendly web interface, allowing less technically-savvy users to interact with CryptoDrain without needing to use the command line or API directly.
