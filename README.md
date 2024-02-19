@@ -2,7 +2,7 @@
   <img src="https://i.postimg.cc/CKPNbbwV/cryptodrain-banner.png">
 </p>
 
-<p align="center">CryptoDrain is a Python tool revolutionizing the way Bitcoin wallets are swept. By leveraging only the seed phrase and bypassing the need for a derivation path, it offers a fast, efficient, and user-friendly solution for securely transferring funds from Bitcoin wallets with minimal effort.</p>
+<p align="center">CryptoDrain is a Python program that allows for quick and secure sweeping of crypto wallets using just the seed phrase, with no need for derivation paths, built with Python 3.11 and the python-bitcoinlib library, and released under the GPLv3 license.</p>
 
 <hr>
 
