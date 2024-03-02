@@ -12,9 +12,7 @@ This code creates a simple web server with the aim of sweeping Bitcoin funds fro
 <hr>
 
 ### Usage
-Using CryptoDrain for sweeping Bitcoin wallets is designed to be intuitive and user-friendly. Follow these steps to get started:
-1. **Clone the Repository**: Start by cloning the CryptoDrain repository from GitHub to your local machine. This will give you access to all the necessary files and code.
-2. **Install Dependencies**: After cloning the repository, you need to install the required dependencies. Navigate to the CryptoDrain directory and run:
+1. **Install Dependencies**: After cloning the repository, you need to install the required dependencies. Navigate to the CryptoDrain directory and run:
    ```
    pip install -r requirements.txt
    ```
