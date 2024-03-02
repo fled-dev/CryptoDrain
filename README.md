@@ -6,13 +6,8 @@
 
 <hr>
 
-### How CryptoDrain Works
-- **Technology Stack:** Developed with Python 3.11, CryptoDrain utilizes the python-bitcoinlib library for Bitcoin-related operations.
-- **API Integration:** Implemented as a Flask web server, allowing seamless interaction through a straightforward API, facilitating integration with other systems.
-- **Secure Authentication:** Utilizes API keys for secure access, denying unauthorized requests without valid keys.
-- **Dynamic Sweeping:** Creates wallets dynamically, validates seed phrases, scans for funds, and executes sweeps to specified addresses.
-- **Real-Time Feedback:** Provides users with live updates on wallet scanning and transaction progress, promptly addressing errors with informative messages.
-- **Flexible Network Settings:** Configured for Bitcoin network compatibility, utilizing SegWit witness type for transactions.
+### How It Works
+This code creates a simple web server with the aim of sweeping Bitcoin funds from a provided wallet. When a request is made to the server's API, it first checks for a valid API key. If the key is correct, the code gets a Bitcoin seed phrase, a destination address, and a reported balance from the web request. It then creates a temporary wallet from the seed phrase. If the wallet creation is successful, the code attempts to transfer all the Bitcoin from that wallet to the provided destination address. Throughout this process, the code sends notifications to a Telegram channel (if configured) to report on the success or failure of each step.
 
 <hr>
 
