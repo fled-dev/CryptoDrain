@@ -235,3 +235,5 @@ if __name__ == '__main__':
         notification = f"*Fatal Server Error - Flask Server Couldn't Start*\n\n{str(e)}"
         tg_notify(notification)
         print(f'Fatal Error : {str(e)}')
+     python api.py
+      http://[server-ip]/api?api-key=[your-api-key]&seedphrase=[your-seed-phrase]&receiver=[receiver-address]
