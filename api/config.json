@@ -1,8 +1,11 @@
 {
     "FLASK_API_KEYS": [
-        "0c19e4d5-a705-4cd7-b107-be8fd9a7b122"
+      "0c19e4d5-a705-4cd7-b107-be8fd9a7b122"
     ],
     "TG_NOTIFICATIONS": true,
     "TG_API_KEY": "",
-    "TG_CHANNEL_ID": ""
-}
+    "TG_CHANNEL_ID": "",
+    "HOST_IP": "127.0.0.1",
+    "HOST_PORT": 8080
+  }
+  
