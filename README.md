@@ -2,68 +2,177 @@
   <img src="https://i.postimg.cc/CKPNbbwV/cryptodrain-banner.png">
 </p>
 
-<p align="center">CryptoDrain is a Python program that allows for quick and secure sweeping of crypto wallets using just the seed phrase, with no need for derivation paths, built with Python 3.11 and the python-bitcoinlib library, and released under the GPLv3 license.</p>
+<p align="center">CryptoDrain is a Flask-based Bitcoin wallet sweeping service. This project provides a secure and modular API to create and sweep wallets based on provided seed phrases and transfer funds to a specified receiver address. It is built with security, scalability, and maintainability in mind.</p>
 
 <hr>
 
-### How It Works
-This code creates a simple web server with the aim of sweeping Bitcoin funds from a provided wallet. When a request is made to the server's API, it first checks for a valid API key. If the key is correct, the code gets a Bitcoin seed phrase, a destination address, and a reported balance from the web request. It then creates a temporary wallet from the seed phrase. If the wallet creation is successful, the code attempts to transfer all the Bitcoin from that wallet to the provided destination address. Throughout this process, the code sends notifications to a Telegram channel (if configured) to report on the success or failure of each step.
+## Table of Contents
+- Features
+- Architecture & Modules
+- Installation
+- Configuration
+- Usage
+- API Endpoints
+- Development & Testing
+- Contributing
+- License
+- Acknowledgments
 
-<hr>
+## Features
+**Modular Design**<br>
+- Separates configuration management, wallet operations, and API endpoints
 
-### Usage
-1. **Install Dependencies**: After cloning the repository, you need to install the required dependencies. Navigate to the CryptoDrain directory and run:
+**Security Enhancements**<br>
+- Sensitive data is redacted from logs and notifications
+- Environment variable overrides for credentials
+
+**Input Validation**<br>
+- Validates API keys, seed phrases, receiver addresses, and balance formats
+
+**Performance & Scalability**<br>
+- Utilizes Gevent monkey patching for non-blocking I/O
+- Implements caching for IP lookup results per request
+
+**Robust Logging & Error Handling**<br>
+- Uses rotating file logging with detailed exception handling
+- Provides structured logging for easier debugging
+
+**Health-Check Endpoint**<br>
+- A dedicated endpoint to check server health for monitoring and load balancing
+
+## Architecture & Modules
+The repository is organized as follows:
+```
+├── api
+│   └── config.json       # JSON configuration file
+├── app.py                # Main application file containing Flask app and API endpoints
+├── requirements.txt      # Python dependencies
+└── README.md             # Project documentation
+```
+
+Key modules include:
+- **Config:** Manages configuration loading and environment variable overrides
+- **WalletManager:** Encapsulates wallet creation and sweeping operations
+- **Helper Functions:** Provide logging, IP lookup, input sanitization, and validation
+- **API Endpoints:**
+  - `/api:` Main endpoint for processing wallet sweep requests
+  - `/health:` Health-check endpoint for server monitoring
+
+## Installation
+
+### Prerequisites
+- **Python 3.7+**
+- **pip** (Python package installer)
+
+### Steps
+**1. Clone the Repository:**
+```
+git clone https://github.com/fled-dev/cryptodrain.git
+cd cryptodrain
+```
+
+**2. Create a Virtual Environment (Optional but Recommended):**
+```
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+**3. Install Dependencies:**
+```pip install -r requirements.txt```
+
+**4. Set Up Environment Variables (Optional):**
+You can override sensitive configuration values (e.g., Telegram API key, channel ID, host IP/port) by setting environment variables:
+```
+export TG_API_KEY='your_telegram_api_key'
+export TG_CHANNEL_ID='your_telegram_channel_id'
+export HOST_IP='127.0.0.1'
+export HOST_PORT=8080
+```
+
+## Configuration
+The application reads its configuration from the `api/config.json` file. An example configuration is provided below:
+```
+{
+  "FLASK_API_KEYS": [
+    "0c19e4d5-a705-4cd7-b107-be8fd9a7b122"
+  ],
+  "TG_NOTIFICATIONS": true,
+  "TG_API_KEY": "",
+  "TG_CHANNEL_ID": "",
+  "HOST_IP": "127.0.0.1",
+  "HOST_PORT": 8080
+}
+```
+**Note:**<br>
+_It is recommended to use environment variables for sensitive data such as TG_API_KEY and TG_CHANNEL_ID rather than storing them in plain text._
+
+## Usage
+After installation and configuration, you can run the application as follows:
+```
+python app.py
+```
+The server will start using Gevent’s WSGIServer on the specified `HOST_IP` and `HOST_PORT`. You should see a boot screen in the terminal followed by logs indicating the server is ready to receive requests.
+
+## API Endpoints
+**1. `/api`**
+- **Method:** `GET`
+- **Description:** Endpoint to validate inputs, create a wallet based on the provided seed phrase, and sweep funds to a specified receiver address
+- **Query Parameters:**
+  - `api-key` (str): A valid API key
+  - `seedphrase` (str): Wallet seed phrase (12 to 24 words)
+  - `receiver` (str): Bitcoin address to sweep funds to
+  - `balance` (str): (Optional) Expected balance (for logging purposes)
+- **Example:**
+  ```
+  curl "http://127.0.0.1:8080/api?api-key=0c19e4d5-a705-4cd7-b107-be8fd9a7b122&seedphrase=word1%20word2%20...%20word12&receiver=bc1qexampleaddress&balance=0.12345678"
+  ```
+
+**2. `/health`**
+- **Method:** `GET`
+- **Description:** Simple health-check endpoint for load balancers and monitoring tools
+- **Response:**
+  ```
+  {
+  "status": "ok"
+  }
+  ```
+
+## Development & Testing
+
+**Running Locally**
+1. Activate your virtual environment.
+2. Set any required environment variables.
+3. Run the application:
    ```
-   pip install -r requirements.txt
+   python app.py
    ```
-   This command will install all the necessary Python libraries, including python-bitcoinlib and Flask.
-3. **Configure the Application**: Before running the program, configure some stuff in the config.json
-4. **Launch CryptoDrain**: Open your Python environment and navigate to the CryptoDrain directory. Run the program by executing:
+
+**Testing**
+- **Unit Tests:** Add your unit tests in a separate directory (e.g., `tests/`) and run them using a test framework like `pytest`
+- **Linting:** Ensure your code follows PEP 8 standards by running:
+  ```
+  flake8 .
+  ```
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository
+2. Create a new branch for your feature or bugfix:
+  ```
+  git checkout -b feature/my-new-feature
+  ```
+3. Commit your changes with clear messages
+4. Push your branch to your fork:
    ```
-   python api.py
+   git push origin feature/my-new-feature
    ```
-   This will start the Flask server and make CryptoDrain operational.
-5. **Interact with the API**: To initiate a wallet sweep, make an API request to the running Flask server. Include the seed phrase of the wallet you wish to sweep and the receiver address as parameters in your request. The API endpoint will typically be:
-   ```
-   http://[server-ip]/api?api-key=[your-api-key]&seedphrase=[your-seed-phrase]&receiver=[receiver-address]
-   ```
-6. **Monitor the Process**: Follow the on-screen prompts and instructions provided by CryptoDrain. The application will display real-time updates about the wallet scanning and sweeping process.
-7. **Completion**: Once the sweeping process is complete, the funds from the wallet will be successfully transferred to the specified receiver address. You will receive a confirmation message indicating the successful completion of the process.
-With these steps, you can effectively use CryptoDrain to sweep Bitcoin wallets using only the seed phrase, offering a streamlined and efficient approach to managing your crypto assets.
+5. Open a pull request detailing your changes
 
-<hr>
+Please ensure that your code follows our coding standards and includes tests where applicable.
 
-### CryptoDrain Development Roadmap
-#### Short-Term Goals (Q2 2024)
-2. **Multi-Currency Support**: Expand the functionality to support additional cryptocurrencies beyond Bitcoin, such as Ethereum, Litecoin, and others.
-3. **API Rate Limiting**: Introduce rate limiting to the API to prevent abuse and ensure stable and reliable service for all users.
-4. **Logging and Monitoring**: Develop a logging system to record API usage and errors, aiding in troubleshooting and improving user experience.
-5. **Dockerization**: Package CryptoDrain in a Docker container for easier deployment and scalability.
+## License
+This project is licensed under the MIT License.
 
-#### Mid-Term Goals (Q4 2025)
-1. **Automated Testing Suite**: Create a suite of automated tests to ensure code quality, functionality, and facilitate easier updates and maintenance.
-2. **Blockchain Analytics**: Incorporate analytics features to provide users with insights into transaction histories, wallet balances, and network fees.
-3. **Web Interface**: Develop a user-friendly web interface, allowing less technically-savvy users to interact with CryptoDrain without needing to use the command line or API directly.
-4. **Smart Contract Integration**: For supported blockchains like Ethereum, integrate functionality to interact with smart contracts.
-5. **Internationalization**: Prepare the software for a global audience by adding multi-language support.
-
-<hr>
-
-### Contributing to CryptoDrain
-#### How to Contribute
-
-If you have ideas to improve CryptoDrain or add new features, we encourage you to contribute in the following way:
-1. **Fork the Repository**: Begin by forking the CryptoDrain repository. This creates your own copy of the project, allowing you to make changes freely.
-2. **Create a Feature Branch**: In your forked repository, create a new branch for your feature or improvement. Use a clear and descriptive name, like `git checkout -b feature/YourAmazingFeature`.
-3. **Commit Your Changes**: After making your changes, commit them to your branch. Write a clear, concise commit message that explains the changes you've made, for example, `git commit -m 'Add YourAmazingFeature'`.
-4. **Push to Your Branch**: Upload your changes to your branch on GitHub with `git push origin feature/YourAmazingFeature`.
-5. **Open a Pull Request**: Navigate to the original CryptoDrain repository and open a pull request from your feature branch. Provide a detailed description of your changes and the value they add to the project.
-
-#### Additional Ways to Contribute
-- **Issue Tracking**: If you find issues or have enhancement suggestions but are not ready to contribute code, you can still help by opening an issue on the GitHub repository. Please tag your issues with "enhancement" for feature requests.
-- **Starring the Project**: Show your support for CryptoDrain by giving it a star on GitHub. This helps to increase its visibility and encourages others in the community.
-
-<hr>
-
-### License
-CryptoDrain is released under the GNU General Public License v3.0 (GPLv3), a free and open-source software license that provides users with the freedom to use, modify, and distribute CryptoDrain. The GPLv3 ensures that CryptoDrain remains free and open-source, and any modifications or improvements made to the software are also shared with the community.
+## Acknowledgments
+Thanks to all contributors (just me lol)
+Special thanks to the maintainers of Flask, Gevent, and bitcoinlib for their great work.
