@@ -171,7 +171,7 @@ Contributions are welcome! Please follow these steps:
 Please ensure that your code follows our coding standards and includes tests where applicable.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the GPL-3.0 license.
 
 ## Acknowledgments
 Thanks to all contributors (just me lol)
