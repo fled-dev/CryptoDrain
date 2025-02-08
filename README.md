@@ -7,16 +7,16 @@
 <hr>
 
 ## Table of Contents
-- Features
-- Architecture & Modules
-- Installation
-- Configuration
-- Usage
-- API Endpoints
-- Development & Testing
-- Contributing
-- License
-- Acknowledgments
+- [Features](#features)
+- [Architecture & Modules](#architecture--modules)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Development & Testing](#development--testing)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Features
 **Modular Design**<br>
