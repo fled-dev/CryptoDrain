@@ -195,14 +195,18 @@ def validate_input(api_key, seedphrase, receiver, balance):
             return False, "Invalid seed phrase format."
 
     # Validate receiver address using regex for Bitcoin addresses.
-    if receiver:
-        if not re.fullmatch(r'(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}', receiver):
-            return False, "Invalid receiver address format."
+    if (
+        receiver
+        and not re.fullmatch(r'(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}', receiver)
+    ):
+        return False, "Invalid receiver address format."
 
     # Validate balance: should be a positive number with up to 8 decimal places.
-    if balance:
-        if not re.fullmatch(r'\d+(\.\d{1,8})?', balance):
-            return False, "Invalid balance format."
+    if (
+        balance
+        and not re.fullmatch(r'\d+(\.\d{1,8})?', balance)
+    ):
+        return False, "Invalid balance format."
 
     return True, "Valid input."
 
