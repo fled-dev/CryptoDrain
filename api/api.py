@@ -6,6 +6,7 @@ Version: 1.2.0
 """
 
 from gevent import monkey
+from gevent.pywsgi import WSGIServer
 monkey.patch_all()
 
 import logging
@@ -21,7 +22,6 @@ import uuid
 
 from flask import Flask, request, jsonify, g
 from bitcoinlib.wallets import Wallet, wallet_delete_if_exists
-from gevent.pywsgi import WSGIServer
 
 # =============================================================================
 # Configuration Class
